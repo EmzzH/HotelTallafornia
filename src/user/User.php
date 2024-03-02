@@ -2,6 +2,8 @@
 
 namespace src\user;
 
+use src\database\Database;
+
 class User
 {
     protected $user_id;
@@ -10,9 +12,19 @@ class User
     protected $address;
     protected $ph_no;
 
-    public function __construct($userId, $name, $dob, $address, $ph_no)
+//    public function __construct($userId, $name, $dob, $address, $ph_no)
+//    {
+//        $this->user_id = $userId;
+//        $this->name = $name;
+//        $this->dob = $dob;
+//        $this->address = $address;
+//        $this->ph_no = $ph_no;
+//
+//    }
+
+    public function __construct( $name, $dob, $address, $ph_no)
     {
-        $this->user_id = $userId;
+//        $this->user_id = $userId;
         $this->name = $name;
         $this->dob = $dob;
         $this->address = $address;
@@ -23,14 +35,13 @@ class User
     //this is the array that will be called to get passed into the DB
     public function userArray()
     {
+        global $connection;
         return [
-            'user_id' => $this->user_id,
+//            'user_id' => Database::getKey($connection, "user", "user_id"),
             'name' => $this->name,
             'address' => $this->address,
             'ph_no' => $this->ph_no,
             'dob' => $this->dob,
-
-
         ];
     }
 
@@ -111,9 +122,7 @@ class User
      */
     public function setUserId($user_id)
     {
-        $this->user_id = $user_id;
+        $this->user_id = Database::getKey($connection, "user", "user_id");
     }
-
-
 }
 

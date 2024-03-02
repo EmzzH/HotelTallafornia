@@ -12,8 +12,8 @@ addNewEmployee();
 <div id="dataForm">
 	<form method="post">
 		
-		<label for="userID">UserID</label> 
-		<input type="text"name="userID" id="userID"> 
+<!--		<label for="userID">UserID</label> -->
+<!--		<input type="text"name="userID" id="userID"> -->
 	
 		<label for="name">Name</label> 
 		<input type="text"name="name" id="name"> 
@@ -24,17 +24,17 @@ addNewEmployee();
 		<label for="address">Address</label>
 		<input type="text" name="address" id="address"> 
 		
-		<label for="phno">Phone No</label> 
-		<input type="text" name="phno"id="phno"> 
+		<label for="ph_no">Phone No</label>
+		<input type="text" name="ph_no"id="ph_no">
 		
-		<label for="employeeID">EmployeeID</label> 
-		<input type="text"name="employeeID" id="employeeID"> 
+<!--		<label for="employeeID">EmployeeID</label> -->
+<!--		<input type="text"name="employeeID" id="employeeID"> -->
 		
 		<label for="job">Job</label> 
-		<input type="text"name="job" id="job"> 
+		<input type="text" name="job" id="job">
 		
 		<br>
-		<input type="submit"name="submit" value="Next">
+		<input type="submit" name="submit" value="Next">
 	</form>
 </div>
 <a href="index.php">Back to home</a>

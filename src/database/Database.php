@@ -3,16 +3,18 @@ namespace src\database;
 
 use PDO;
 use PDOException;
-
+require "../common.php";
+require_once '../src/DBconnect.php';
 
 class Database{
+
     
     //Update this with the correct details for your own DB
     
-    private $host = "Emilys-MacBook-Pro-2.local"; // Database host
+    private $host = "localhost"; // Database host
     private $dbname = "HotelTallafornia"; // Database name
     private $username = "root"; // Database username
-    private $password = "Bl4ckb3rry!"; // Database password
+    private $password = "root"; // Database password
     private $pdo; // PDO object for database connection
 
     // Constructor to establish database connection
@@ -70,6 +72,40 @@ class Database{
         }
         $stmt = $this->executeQuery($sql, $params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Add an array to a table
+    public static function addToTable($connection, $inputArray, $tableName)
+    {
+
+        try {
+            $sql = sprintf(
+                "INSERT INTO %s (%s) values (%s)",
+                "$tableName",
+                implode(", ", array_keys($inputArray)),
+                ":" . implode(", :", array_keys($inputArray))
+            );
+            $statement = $connection->prepare($sql);
+            $statement->execute($inputArray);
+        } catch (PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
+        }
+    }
+// https://www.php.net/manual/en/pdostatement.fetchobject.php
+//  Get a key from a table
+    public static function getKey($connection, $tableName, $primaryKey)
+    {
+        require_once '../src/DBconnect.php';;
+        try {
+            $sql = "SELECT MAX(" . $primaryKey . ") FROM " . $tableName;
+            $statement = $connection->prepare($sql);
+            $statement->execute();
+            $result_array = $statement->fetch(PDO::FETCH_ASSOC);
+            $result = $result_array ["MAX(" . $primaryKey . ")"];
+            return $result;
+        } catch (PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
+        }
     }
 }
 ?>
