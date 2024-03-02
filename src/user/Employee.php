@@ -3,14 +3,14 @@ namespace src\user;
 
 class Employee extends User
 {
-    protected $employeeid;
+    protected $employee_id;
     protected $job;
     /**
      * @return mixed
      */
-    public function __construct($userId, $name, $dob, $address, $phno,$employeeid, $job) {
-        parent ::__construct($userId, $name, $dob, $address, $phno);
-        $this->employeeid = $employeeid;
+    public function __construct($userId, $name, $dob, $address, $ph_no, $employee_id, $job) {
+        parent ::__construct($userId, $name, $dob, $address, $ph_no);
+        $this->employee_id = $employee_id;
         $this->job = $job;
               
     
@@ -18,7 +18,7 @@ class Employee extends User
     //this is the array that will be called to get passed into the DB
     public function employeeArray(){
         return [      
-            'employee_id' => $this->employeeid,
+            'employee_id' => $this->employee_id,
             'job' => $this->job,
             //this is how to pull the correct key w/o having to query the DB as it gets it directly from the User class
             'user_id'=> $this->getUserId()    
@@ -27,7 +27,7 @@ class Employee extends User
     
     public function getEmployeeid()
     {
-        return $this->employeeid;
+        return $this->employee_id;
     }
 
     /**
@@ -39,11 +39,11 @@ class Employee extends User
     }
 
     /**
-     * @param mixed $employeeid
+     * @param mixed $employee_id
      */
-    public function setEmployeeid($employeeid)
+    public function setEmployeeid($employee_id)
     {
-        $this->employeeid = $employeeid;
+        $this->employee_id = $employee_id;
     }
 
     /**

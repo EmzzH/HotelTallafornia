@@ -4,19 +4,19 @@ namespace hotel;
 class diningTable{
 
     private $capacity;
-    private $table_no;
+    private $table_id;
 
     
     public function __construct($table_no, $capacity)
     {
         $this->capacity = $capacity;
-        $this->table_no = $table_no; 
+        $this->table_id = $table_no;
      
     }
     
     public function diningTableArray(){
         return [
-            'table_no' => $this->table_no,
+            'table_no' => $this->table_id,
             'capacity' => $this->capacity,     
             
         ];
@@ -24,9 +24,9 @@ class diningTable{
     /**
      * @return mixed
      */
-    public function getTable_no()
+    public function getTable_id()
     {
-        return $this->table_no;
+        return $this->table_id;
     }
 
     /**
