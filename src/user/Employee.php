@@ -8,16 +8,12 @@ class Employee extends User
     /**
      * @return mixed
      */
-//    public function __construct($userId, $name, $dob, $address, $ph_no, $employee_id, $job) {
-//        parent ::__construct($userId, $name, $dob, $address, $ph_no);
-//        $this->employee_id = $employee_id;
-//        $this->job = $job;
-//    }
-
-    public function __construct( $name, $dob, $address, $ph_no, $job) {
-        parent ::__construct($name, $dob, $address, $ph_no);
-//        $this->employee_id = $employee_id;
+    public function __construct($userId, $name, $dob, $address, $ph_no, $employee_id, $job) {
+        parent ::__construct($userId, $name, $dob, $address, $ph_no);
+        $this->employee_id = $employee_id;
         $this->job = $job;
+              
+    
     }
     //this is the array that will be called to get passed into the DB
     public function employeeArray(){
@@ -57,6 +53,11 @@ class Employee extends User
     {
         $this->job = $job;
     }
+
+    
+    
+    
+    
     }
     
 

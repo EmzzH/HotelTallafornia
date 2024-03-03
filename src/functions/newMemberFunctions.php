@@ -1,7 +1,4 @@
 <?php
-
-use src\database\Database;
-
 function makeNewMember()
 {
     if (isset($_POST['submit'])) {
@@ -18,10 +15,10 @@ function makeNewMember()
             "dob" => escape($_POST['dob'])
         );
 
-        Database::addToTable($connection, $new_person, "person");
+        addToTable($connection, $new_person, "person");
 
         // Get person_id
-        $person_id = Database::getKey($connection, "person", "person_id");
+        $person_id = getForeignKey($connection, "person", "person_id");
 
         // Date for the customer table
         $new_customer = array(
@@ -29,9 +26,9 @@ function makeNewMember()
             "passport_no" => escape($_POST['passport_no'])
         );
 
-        Database::addToTable($connection, $new_customer, "customer");
+        addToTable($connection, $new_customer, "customer");
         // Get customer_id
-        $customer_id = Database::getKey($connection, "customer", "customer_id");
+        $customer_id = getForeignKey($connection, "customer", "customer_id");
 
 //        Data for the login table
         $new_login = array(
@@ -39,9 +36,9 @@ function makeNewMember()
             "password" => escape($_POST['password'])
         );
 
-        Database::addToTable($connection, $new_login, "login");
+        addToTable($connection, $new_login, "login");
         // Get login_id
-        $login_id = Database::getKey($connection, "login", "login_id");
+        $login_id = getForeignKey($connection, "login", "login_id");
 
 //        Date for the member table
         $new_member = array(
@@ -49,7 +46,7 @@ function makeNewMember()
             "login_id" => $login_id
         );
 
-        Database::addToTable($connection, $new_member, "member");
+        addToTable($connection, $new_member, "member");
     }
 
     if (isset($_POST['submit'])) {
