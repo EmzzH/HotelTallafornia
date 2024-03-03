@@ -1,39 +1,35 @@
 <?php
-
 namespace src\user;
 
-class User
-{
-    protected $user_id;
+class User {
+    protected $userId;
     protected $name;
     protected $dob;
     protected $address;
-    protected $ph_no;
-
-    public function __construct($userId, $name, $dob, $address, $ph_no)
-    {
-        $this->user_id = $userId;
+    protected $phno;
+    
+    public function __construct($userId, $name, $dob, $address, $phno) {
+        $this->userId = $userId;
         $this->name = $name;
         $this->dob = $dob;
         $this->address = $address;
-        $this->ph_no = $ph_no;
-
+        $this->phno = $phno;
+        
     }
-
+    
     //this is the array that will be called to get passed into the DB
-    public function userArray()
-    {
+    public function userArray(){
         return [
-            'user_id' => $this->user_id,
+            'user_id' => $this->userId,
             'name' => $this->name,
             'address' => $this->address,
-            'ph_no' => $this->ph_no,
+            'ph_no' => $this->phno,
             'dob' => $this->dob,
-
-
+            
+            
         ];
     }
-
+    
     /**
      * @return mixed
      */
@@ -41,7 +37,7 @@ class User
     {
         return $this->name;
     }
-
+    
     /**
      * @return mixed
      */
@@ -49,7 +45,7 @@ class User
     {
         return $this->dob;
     }
-
+    
     /**
      * @return mixed
      */
@@ -57,23 +53,23 @@ class User
     {
         return $this->address;
     }
-
+    
     /**
      * @return mixed
      */
     public function getPhno()
     {
-        return $this->ph_no;
+        return $this->phno;
     }
-
+    
     /**
      * @return mixed
      */
     public function getUserId()
     {
-        return $this->user_id;
+        return $this->userId;
     }
-
+    
     /**
      * @param mixed $name
      */
@@ -81,7 +77,7 @@ class User
     {
         $this->name = $name;
     }
-
+    
     /**
      * @param mixed $dob
      */
@@ -89,7 +85,7 @@ class User
     {
         $this->dob = $dob;
     }
-
+    
     /**
      * @param mixed $address
      */
@@ -97,23 +93,24 @@ class User
     {
         $this->address = $address;
     }
-
+    
     /**
-     * @param mixed $ph_no
+     * @param mixed $phno
      */
-    public function setPhno($ph_no)
+    public function setPhno($phno)
     {
-        $this->ph_no = $ph_no;
+        $this->phno = $phno;
     }
-
+    
     /**
-     * @param mixed $user_id
+     * @param mixed $userId
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        $this->user_id = $user_id;
+        $this->userId = $userId;
     }
-
-
+    
+    
+    
 }
 

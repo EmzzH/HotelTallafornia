@@ -3,15 +3,15 @@ namespace Hotel;
 
 class Room
 {
-    private $room_id;
+    private $room_no;
     private $type;
     private $accessibility;
     private $price;
     
     
-    public function __construct($room_id, $type, $accessibility, $price)
+    public function __construct($room_no, $type, $accessibility, $price)
     {
-        $this->room_id = $room_id;
+        $this->room_no = $room_no;
         $this->type = $type;
         $this -> accessibility = $accessibility;
         $this -> price = $price;
@@ -19,7 +19,7 @@ class Room
     
     public function roomArray(){
         return [
-            'room_no' => $this->room_id,
+            'room_no' => $this->room_no,
             'type' => $this->type,
             'accessibility' => $this->accessibility,
             'price' => $this->price,
@@ -30,9 +30,9 @@ class Room
     /**
      * @return mixed
      */
-    public function getRoom_id()
+    public function getRoom_no()
     {
-        return $this->room_id;
+        return $this->room_no;
     }
 
     /**
@@ -60,11 +60,11 @@ class Room
     }
 
     /**
-     * @param mixed $room_id
+     * @param mixed $room_no
      */
-    public function setRoom_id($room_id)
+    public function setRoom_no($room_no)
     {
-        $this->room_id = $room_id;
+        $this->room_no = $room_no;
     }
 
     /**
