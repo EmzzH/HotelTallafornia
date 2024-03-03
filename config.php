@@ -3,9 +3,9 @@
  * Configuration for database connection
  *
  */
-$host = "Emilys-MacBook-Pro-2.local";
+$host = "localhost";
 $username = "root";
-$password = "Bl4ckb3rry!";
+$password = "root";
 $dbname = "HotelTallafornia"; // will use later
 $dsn = "mysql:host=$host;dbname=$dbname"; // will use later
 $options = array(

@@ -20,16 +20,16 @@ function addNewEmployee()
     if (isset($_POST['submit'])) {
 
         // Retrieve POST data
-        $user_id = $_POST['userID'];
+        $user_id = $_POST['user_id'];
         $name = $_POST['name'];
         $dob = $_POST['dob'];
         $address = $_POST['address'];
-        $phno = $_POST['phno'];
-        $employeeId = $_POST['employeeID'];
+        $ph_no = $_POST['ph_no'];
+        $employee_id = $_POST['employee_id'];
         $job = $_POST['job'];
 
         // Create a new User object
-        $employee = new Employee($user_id, $name, $dob, $address, $phno, $employeeId, $job);
+        $employee = new Employee($user_id, $name, $dob, $address, $ph_no, $employee_id, $job);
 
         // create the conection
         $connection = new Database();
