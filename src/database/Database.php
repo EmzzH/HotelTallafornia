@@ -77,6 +77,9 @@ class Database{
     // Add an array to a table
     public static function addToTable($connection, $inputArray, $tableName)
     {
+        require "../common.php";
+//        include "../src/Functions/addToTable.php";
+        require_once '../src/DBconnect.php';
 
         try {
             $sql = sprintf(
@@ -95,7 +98,7 @@ class Database{
 //  Get a key from a table
     public static function getKey($connection, $tableName, $primaryKey)
     {
-        require_once '../src/DBconnect.php';;
+        require_once '../src/DBconnect.php';
         try {
             $sql = "SELECT MAX(" . $primaryKey . ") FROM " . $tableName;
             $statement = $connection->prepare($sql);

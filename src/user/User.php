@@ -3,7 +3,6 @@
 namespace src\user;
 
 use src\database\Database;
-
 class User
 {
     protected $user_id;
@@ -11,6 +10,7 @@ class User
     protected $dob;
     protected $address;
     protected $ph_no;
+
 
 //    public function __construct($userId, $name, $dob, $address, $ph_no)
 //    {
@@ -37,7 +37,7 @@ class User
     {
         global $connection;
         return [
-//            'user_id' => Database::getKey($connection, "user", "user_id"),
+            'user_id' => $this->getUserId(),
             'name' => $this->name,
             'address' => $this->address,
             'ph_no' => $this->ph_no,
@@ -45,83 +45,62 @@ class User
         ];
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDob()
     {
         return $this->dob;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getAddress()
     {
         return $this->address;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getPhno()
     {
         return $this->ph_no;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getUserId()
     {
         return $this->user_id;
     }
 
-    /**
-     * @param mixed $name
-     */
     public function setName($name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @param mixed $dob
-     */
     public function setDob($dob)
     {
         $this->dob = $dob;
     }
 
-    /**
-     * @param mixed $address
-     */
+
     public function setAddress($address)
     {
         $this->address = $address;
     }
 
-    /**
-     * @param mixed $ph_no
-     */
+
     public function setPhno($ph_no)
     {
         $this->ph_no = $ph_no;
     }
 
-    /**
-     * @param mixed $user_id
-     */
+
     public function setUserId($user_id)
     {
+        require_once('../../config.php');
+        $connection = new PDO($dsn, $username, $password, $options);
         $this->user_id = Database::getKey($connection, "user", "user_id");
     }
 }
