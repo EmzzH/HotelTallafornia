@@ -29,20 +29,21 @@ function addNewEmployee()
         $job = $_POST['job'];
 
 
+
+
+
+
+
         // Create a new User object
 //        $employee = new Employee($user_id, $name, $dob, $address, $ph_no, $employee_id, $job);
-        $employee = new Employee($name, $dob, $address, $ph_no,  $job);
+        $employee = new Employee( $name, $dob, $address, $ph_no,  $job);
 
         // create the conection
-//        $connection = new Database();
+        $connection = new Database();
 
-
-//        $connection = new PDO($dsn, $username, $password, $options);
-
-//        echo $name, $dob, $address, $ph_no,  $job;
         // call the insert to DB Function Here
-        Database::addToTable($connection, $employee->userArray(), $userTable);
-        Database::addToTable($connection, $employee->userArray(), $employeeTable);
+        $connection->insert($userTable, $employee->userArray());
+        $connection->insert($employeeTable, $employee->employeeArray());
 
         echo "Table data stored successfully!";
     }
